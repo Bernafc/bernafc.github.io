@@ -4,11 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Currículum - Bernardo Flores Castro</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     /* ======= ESTILOS GENERALES ======= */
     body {
       margin: 0;
-      font-family: "Poppins", Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       background-color: #0e0e10;
       color: #f5f5f5;
       line-height: 1.6;
@@ -17,10 +21,12 @@
     a {
       color: #58a6ff;
       text-decoration: none;
+      transition: 0.3s;
     }
 
     a:hover {
       text-decoration: underline;
+      color: #00bfff;
     }
 
     header {
@@ -32,7 +38,7 @@
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: #00bfff;
     }
 
@@ -42,13 +48,28 @@
       margin-top: 10px;
     }
 
+    .contact-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      background-color: #00bfff;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .contact-button:hover {
+      background-color: #0095d1;
+    }
+
     main {
       max-width: 900px;
       margin: 50px auto;
       background: #1b1b1f;
       border-radius: 12px;
       padding: 40px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
     }
 
     section {
@@ -72,7 +93,17 @@
     }
 
     .job {
+      background-color: #222;
+      padding: 15px;
+      border-radius: 10px;
       margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .job:hover {
+      background-color: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
     footer {
@@ -93,6 +124,10 @@
       header h1 {
         font-size: 2em;
       }
+
+      .contact-button {
+        padding: 8px 20px;
+      }
     }
   </style>
 </head>
@@ -100,6 +135,7 @@
   <header>
     <h1>Bernardo Flores Castro</h1>
     <p>Estudiante Universitario | <a href="mailto:bernardoflores@example.com">bernardoflores@example.com</a></p>
+    <a class="contact-button" href="mailto:bernardoflores@example.com">Contactarme</a>
   </header>
 
   <main>
@@ -152,7 +188,7 @@
       <h2>Datos de Contacto</h2>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:bernardoflores@example.com">bernardoflores@example.com</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/bernardoflores">github.com/bernardoflores</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/bernardoflores" target="_blank">github.com/bernardoflores</a></li>
       </ul>
     </section>
   </main>
