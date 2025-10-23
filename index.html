@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currículum - Bernardo Flores Castro</title>
+  <title>Currículum Interactivo - Bernardo Flores Castro</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
       background-color: #0e0e10;
       color: #f5f5f5;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -34,46 +35,81 @@
       text-align: center;
       padding: 60px 20px;
       border-bottom: 2px solid #222;
+      position: relative;
+      overflow: hidden;
     }
 
     header h1 {
       margin: 0;
       font-size: 2.8em;
       color: #00bfff;
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: fadeDown 1s forwards;
     }
 
     header p {
       font-size: 1.2em;
       color: #ccc;
       margin-top: 10px;
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: fadeDown 1s forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeDown {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .contact-button {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 25px;
+      margin-top: 20px;
+      padding: 12px 30px;
       background-color: #00bfff;
       color: #fff;
       font-weight: 600;
       border-radius: 8px;
       transition: 0.3s;
+      transform: scale(0.9);
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.6s;
     }
 
     .contact-button:hover {
       background-color: #0095d1;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeUp {
+      to {
+        transform: scale(1);
+      }
     }
 
     main {
       max-width: 900px;
       margin: 50px auto;
-      background: #1b1b1f;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      padding: 0 20px;
     }
 
     section {
+      background: #1b1b1f;
+      border-radius: 12px;
+      padding: 40px;
       margin-bottom: 40px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -112,21 +148,21 @@
       color: #aaa;
       font-size: 0.9em;
       border-top: 1px solid #222;
+      margin-top: 50px;
     }
 
     /* ======= RESPONSIVO ======= */
     @media (max-width: 600px) {
-      main {
-        margin: 20px;
-        padding: 20px;
-      }
-
       header h1 {
         font-size: 2em;
       }
 
       .contact-button {
-        padding: 8px 20px;
+        padding: 10px 20px;
+      }
+
+      section {
+        padding: 25px;
       }
     }
   </style>
@@ -135,11 +171,11 @@
   <header>
     <h1>Bernardo Flores Castro</h1>
     <p>Estudiante Universitario | <a href="mailto:bernardoflores@example.com">bernardoflores@example.com</a></p>
-    <a class="contact-button" href="tel:+591 73609362">Contactarme</a>
+    <a class="contact-button" href="tel:+59112345678">Contactarme</a>
   </header>
 
   <main>
-    <section>
+    <section class="animate">
       <h2>Perfil Profesional</h2>
       <p>
         Soy un estudiante universitario motivado, responsable y con experiencia laboral en distintos rubros.
@@ -148,7 +184,7 @@
       </p>
     </section>
 
-    <section>
+    <section class="animate">
       <h2>Experiencia Laboral</h2>
       <div class="job">
         <strong>Empleado en Agtricolor</strong> — Actual<br>
@@ -166,14 +202,14 @@
       </div>
     </section>
 
-    <section>
+    <section class="animate">
       <h2>Educación</h2>
       <ul>
         <li><strong>Estudiante Universitario</strong> — Carrera en curso (Universidad no especificada)</li>
       </ul>
     </section>
 
-    <section>
+    <section class="animate">
       <h2>Habilidades</h2>
       <ul>
         <li>Responsabilidad y compromiso</li>
@@ -184,7 +220,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="animate">
       <h2>Datos de Contacto</h2>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:bernardoflores@example.com">bernardoflores@example.com</a></li>
@@ -196,5 +232,20 @@
   <footer>
     © 2025 Bernardo Flores Castro — Creado con 💙 usando GitHub Pages
   </footer>
+
+  <script>
+    // Animación al hacer scroll
+    const sections = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
